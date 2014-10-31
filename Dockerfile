@@ -40,8 +40,10 @@ RUN sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc
 RUN sudo apt-get update && sudo apt-get install -y skype
 RUN apt-get install -y libpulse0:i386 pulseaudio:i386
 
-# Mantain Skype Config
-VOLUME /home/docker/.Skype
+# Add Skype Service
+RUN mkdir /etc/service/skype/
+ADD skype.sh /etc/service/skype/run
+RUN chmod +x /etc/service/skype/run
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

@@ -21,7 +21,7 @@ Building Instructions
 
 3. Run skype with XPRA
 
-        xpra start ssh:docker@localhost:22222:10 --start-child=skype
+        xpra attach ssh:docker@localhost:22222:10
 
 Frequently Asked Questions
 ==========================
